@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Single Page Scrolling</title>
+</head>
+<body>
+    <div class="wrapper">
+        <ul class="ul">
+            <li><a href="#orange">Orange</a></li>
+            <li><a href="#white">White</a></li>
+            <li><a href="#green">Green</a></li>
+            <li><a href="#pink">Pink</a></li>
+        </ul>
+        <div class="container">
+            <div id="orange">Orange</div>
+            <div id="white">White
+                <p>I am White , I dont need Color.</p>
+            </div>
+            <div id="green">Green</div>
+            <div id="pink">Pink</div>
+        </div>
+    </div>
+    <script>
+    var li = document.querySelector('.ul');
+    li.addEventListener('click', function(e){
+        if(e.target.tagName == 'A'){
+            var idName= e.target.attributes.href.nodeValue;
+            var tag = document.getElementsByTagName('LI')
+            var listArray = Array.from(tag);
+            if(idName == '#white'){
+                listArray.forEach((list) =>{
+                    list.style.backgroundColor = "silver";
+                })
+            }else{
+                listArray.forEach((list) =>{
+                    list.style.backgroundColor = "white";
+                })
+            }
+        }
+    })
+    </script>
+
+</body>
+</html>
